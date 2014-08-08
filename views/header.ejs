@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Blog</title>
+<link rel="stylesheet" href="/stylesheets/style.css">
+<script charset="utf-8" src="/KindEditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="/KindEditor/lang/zh_CN.js"></script>
+<script>
+var editor;
+KindEditor.ready(function(K) {
+  editor = K.create('textarea', {
+  allowImageUpload : false,
+  items : [
+    'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
+        'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+        'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+        'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+        'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+        'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
+        'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+        'anchor', 'link', 'unlink', '|', 'about'
+        ]
+  });
+});
+</script>
+</head>
+<body>
+<header>
+<h1><%= title %></h1>
+</header>
+<nav>
+<span><a title="主页" href="/lovexiongbaobao">home</a></span>
+<% if(user) { %>
+
+<span><a title="上传" href="/upload">upload</a></span>
+<span><a title="发表" href="/post">post</a></span>
+<span><a title="登出" href="/logout">logout</a></span>
+<span><a title="修改主页类型" href="/kingda_type">type</a></span>
+<% } else { %>
+<span><a title="登陆" href="/login">login</a></span>
+<span><a title="注册" href="/reg">register</a></span>
+<% } %>
+<span><form action="/lovexiongbaobao/search" method="GET"><input type="text" name="keyword" placeholder="SEARCH" class="search" /></form></span>
+</nav>
+<article>
+	<% if (success) { %>
+	<div><%= success %></div>
+	<% } %>
+	<% if (error) { %>
+	<div><%= error %></div>
+	<% } %>

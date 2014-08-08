@@ -1,0 +1,109 @@
+<%- include kingda_header %>
+<div class="kingda_content_article container theme-showcase">
+     <div class="kingda_content_article_left">
+
+     <% types.forEach(function(type,index){ %>
+
+       <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%= type.title %></h3>
+           </div>
+      <div class="panel-body">
+      <% type.text=type.text.substring(0,120) %>
+        <p><%= type.text %><a href="/articles/<%=type.number%>">--&gt;&gt;more</a></p>
+      </div>
+      </div><!-- end panel panel-primary -->
+
+     <% }); %>
+        
+   </div><!-- end kingda_content_article_left -->
+
+    <div class="kingda_content_article_right">
+    <div class="panel panel-info panel_right">
+       <div class="panel-heading">
+      <h3 class="panel-title">Your_最新文章</h3>
+      </div>
+      <div class="panel-body">
+      <% passages.forEach(function (post,index){ %>
+      <% if(index==0) { 
+          
+            function    HTMLDeCode(str)   
+               {   
+                     var    s    =    "";   
+                     if    (str.length    ==    0)    return    "";   
+                     s    =    str.replace(/&amp;/g,    "&");   
+                     s    =    s.replace(/&lt;/g,        "<");   
+                     s    =    s.replace(/&gt;/g,        ">");   
+                     s    =    s.replace(/&nbsp;/g,        "    ");   
+                     s    =    s.replace(/'/g,      "\'");   
+                     s    =    s.replace(/&quot;/g,      "\"");   
+                     s    =    s.replace(/<br>/g,      "\n");   
+                     s    =    s.replace(/&#39;/g,      "\'");  
+                     return    s;   
+               }   
+
+
+         var text=post.post+"";
+         text=HTMLDeCode(text);
+         text=text.replace(/<[^>]+>/g,"");
+         text=text.substring(0,100);
+         
+
+
+           
+     
+                          %>
+       <h3><a href="/blogs/<%=post._id%>"><%= post.title %></a></h3>
+       <h4>作者：<a href="#"><%= post.name %></a>&nbsp;日期：<%= post.time.day %></h4>
+       <p><%= text %>...<a href="/blogs/<%=post._id%>">more</a></p>
+       <% } })%>
+      </div>
+    </div><!-- end panel panel-primary -->
+
+    <div class="panel panel-info panel_right">
+       <div class="panel-heading">
+      <h3 class="panel-title">Kingda_最新作品</h3>
+      </div>
+      <div class="panel-body">
+         <% goods.forEach(function (post,index){ %>
+      <% if(index==0) { 
+          
+            function    HTMLDeCode(str)   
+               {   
+                     var    s    =    "";   
+                     if    (str.length    ==    0)    return    "";   
+                     s    =    str.replace(/&amp;/g,    "&");   
+                     s    =    s.replace(/&lt;/g,        "<");   
+                     s    =    s.replace(/&gt;/g,        ">");   
+                     s    =    s.replace(/&nbsp;/g,        "    ");   
+                     s    =    s.replace(/'/g,      "\'");   
+                     s    =    s.replace(/&quot;/g,      "\"");   
+                     s    =    s.replace(/<br>/g,      "\n");   
+                     s    =    s.replace(/&#39;/g,      "\'");  
+                     return    s;   
+               }   
+
+
+         var text=post.post+"";
+         text=HTMLDeCode(text);
+         text=text.replace(/<[^>]+>/g,"");
+         text=text.substring(0,100);
+         
+
+
+           
+     
+                          %>
+       <h3><a href="/blogs/<%=post._id%>"><%= post.title %></a></h3>
+       <h4>作者：<a href="#"><%= post.name %></a>&nbsp;日期：<%= post.time.day %></h4>
+       <p><%= text %>...<a href="/blogs/<%=post._id%>">more</a></p>
+       <% } })%>
+    </div><!-- end panel panel-primary -->
+    
+    </div><!-- kingda_content_article_right -->
+
+<div class="kingda_content_article_bottom">
+
+</div><!--  end kingda_content_article_bottom-->
+</div><!-- end kingda_content_article -->
+<%- include kingda_footer %>

@@ -1,0 +1,123 @@
+<%- include kingda_header %>
+<div class="blog_content container">
+
+      <div class="blog-header">
+        <h1 class="blog-title">Your Kingda Blog</h1>
+        <p class="lead blog-description">Share Happiness,Share Programme</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <h2 class="blog-post-title"><%= post.title %></h2>
+            <p class="blog-post-meta"><%= post.time.day %> by <a href="#"><%= post.name %></a></p>
+
+           <%- post.post%>
+
+
+          </div><!-- /.blog-post -->
+           <ul class="pager">
+           <% type=""+post.type; %>
+            <li><a href="/articles/<%=type %>">返回</a></li>
+            </ul>
+                      <!-- JiaThis Button BEGIN -->
+                      <div class="jiathis_style">
+                      <span class="jiathis_txt">分享到：</span>
+                      <a class="jiathis_button_weixin">微信</a>
+                      <a class="jiathis_button_tsina">新浪微博</a>
+                      <a class="jiathis_button_feixin">飞信</a>
+                      <a class="jiathis_button_cqq">QQ好友</a>
+                      <a class="jiathis_button_qzone">QQ空间</a>
+                      <a class="jiathis_button_fb">Facebook</a>
+                      <a class="jiathis_button_twitter">Twitter</a>
+
+                      <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+                      <a class="jiathis_counter_style"></a>
+                      </div>
+                      <script type="text/javascript" >
+                      var jiathis_config={
+                        summary:"",
+                        shortUrl:false,
+                        hideMore:false
+                      }
+                      </script>
+                      <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                      <!-- JiaThis Button END -->
+
+                  <!-- 多说评论框 start -->
+                  
+       <div class="ds-thread" data-thread-key="<%=post._id %>" data-title="<%= post.title %>" data-url="<%=url%>"></div>
+            <!-- 多说评论框 end -->
+            <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+            <script type="text/javascript">
+            var duoshuoQuery = {short_name:"yourkingda"};
+              (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0] 
+                 || document.getElementsByTagName('body')[0]).appendChild(ds);
+              })();
+              </script>
+            <!-- 多说公共JS代码 end -->
+
+
+            
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>Hope</h4>
+            <p>I hope you in <strong>yourkingda.cn</strong> can find something wrong or incorrect ,which can be told by you through clicking <a href="#">here</a></p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Hot Passages</h4>
+            <ol class="list-unstyled">
+              <!-- 多说热评文章 start -->
+              <div class="ds-top-threads" data-range="daily" data-num-items="5"></div>
+            <!-- 多说热评文章 end -->
+            <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+            <script type="text/javascript">
+            var duoshuoQuery = {short_name:"yourkingda"};
+              (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0] 
+                 || document.getElementsByTagName('body')[0]).appendChild(ds);
+              })();
+              </script>
+            <!-- 多说公共JS代码 end -->
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>About Me</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">Weibo</a></li>
+              <li><a href="#">weixin</a></li>
+              <li><a href="#">Github</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>About This Website</h4>
+            <ol class="list-unstyled">
+              <li><a href="http://www.nodejs.org/">NodeJS</a></li>
+              <li><a href="http://getbootstrap.com/2.3.2/">Bootstrap</a></li>
+              <li><a href="http://www.jiathis.com/">JiaThis</a></li>
+              <li><a href="http://duoshuo.com/">duoshuo</a></li>
+              <li><a href="http://www.sublimetext.com/2">Sublime Text 2</a></li>
+              <li><a href="http://www.aliyun.com/">aliyun</a></li>
+              <li><a href="http://appengine.jd.com/">JCloud</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div>
+<%- include kingda_footer %>

@@ -1,0 +1,30 @@
+<%- include header %>
+<form method="post">
+标题:<br />
+<input id="title" type="text" name="title" /><br />
+正文：<br />
+<textarea id="post" name="post" rows="20" cols="100"></textarea><br />
+类型：
+<select name="type">
+<% types.forEach(function(type,index){%>
+	<option value="<%= type.number %>"><%= type.title %></option>
+<% }); %>
+</select>
+<input id="submit" type="submit" value="发表" />
+</form>
+
+<script src="/javascripts/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+
+$('#submit').click(function(){
+
+if($('#title').val().length==0)
+	{alert("标题不能为空");
+               
+    return false;
+               }
+});
+
+</script>
+<%- include footer %>
+

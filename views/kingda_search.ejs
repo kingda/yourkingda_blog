@@ -1,0 +1,79 @@
+<%- include kingda_header %>
+<div class="blog_content container">
+
+      <div class="blog-header">
+        <h1 class="blog-title">Your Kingda Blog</h1>
+        <p class="lead blog-description">Share Happiness,Share Programme</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+        <% if(posts.length==0){%>
+        <h2 class="blog-post-title">抱歉~未能搜素到相关数据</h2>
+        <%   }%>
+       <% posts.forEach(function(post,index){ %>
+
+         <div class="blog-post">
+            <h2 class="blog-post-title"><a href="/blogs/<%=post._id%>"><%= post.title %></a></h2>
+            <p class="blog-post-meta"><%= post.time.day %> by <a href="#"><%= post.name %></a></p>
+          </div><!-- /.blog-post -->
+
+
+        <%       });     %>
+       
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>Hope</h4>
+            <p>I hope you in <strong>yourkingda.cn</strong> can find something wrong or incorrect ,which can be told by you through clicking <a href="#">here</a></p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Hot Passages</h4>
+            <ol class="list-unstyled">
+              <!-- 多说热评文章 start -->
+              <div class="ds-top-threads" data-range="daily" data-num-items="5"></div>
+            <!-- 多说热评文章 end -->
+            <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+            <script type="text/javascript">
+            var duoshuoQuery = {short_name:"yourkingda"};
+              (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0] 
+                 || document.getElementsByTagName('body')[0]).appendChild(ds);
+              })();
+              </script>
+            <!-- 多说公共JS代码 end -->
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>About Me</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">Weibo</a></li>
+              <li><a href="#">weixin</a></li>
+              <li><a href="#">Github</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>About This Website</h4>
+            <ol class="list-unstyled">
+              <li><a href="http://www.nodejs.org/">NodeJS</a></li>
+              <li><a href="http://getbootstrap.com/2.3.2/">Bootstrap</a></li>
+              <li><a href="http://www.jiathis.com/">JiaThis</a></li>
+              <li><a href="http://duoshuo.com/">duoshuo</a></li>
+              <li><a href="http://www.sublimetext.com/2">Sublime Text 2</a></li>
+              <li><a href="http://www.aliyun.com/">aliyun</a></li>
+              <li><a href="http://appengine.jd.com/">JCloud</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div>
+<%- include kingda_footer %>

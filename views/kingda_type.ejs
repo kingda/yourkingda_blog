@@ -1,0 +1,18 @@
+<%- include header %>
+<% types.forEach(function(type,index){ %>
+	<ul style="list-style: none;border-bottom:solid 1px black;">
+	<li>号码:&nbsp;&nbsp;&nbsp;<%=type.number%></li>
+	<li>标题:&nbsp;&nbsp;&nbsp;<%=type.title%></li>
+	<li>内容:&nbsp;&nbsp;&nbsp;<%=type.text%></li>
+	<a href="/remove_type/<%=type._id%>">remove</a>
+	</ul>
+	</br>
+<% }); %>
+<form method="post">
+标题:<br />
+<input type="text" name="type_title" /><br />
+正文：<br />
+<textarea name="type_text" rows="20" cols="100"></textarea><br />
+<input type="submit" value="发表" />
+</form>
+<%- include footer %>

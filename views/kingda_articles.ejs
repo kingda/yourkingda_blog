@@ -1,0 +1,81 @@
+<%- include kingda_header %>
+<div class="articles_content container theme-showcase">
+<!-- 导航开始 -->
+  <div class="content_nav">
+   <ul class="nav nav-pills nav-stacked" role="tablist">
+   <% types.forEach(function(type,index){ %>
+
+      <li role="presentation" 
+      <% %>
+    <% if(type.number==number){ %>
+      class="active">
+  <% }else{ %>
+       >
+ <% } %>
+      <a href="/articles/<%=type.number%>"><%=type.title%></a></li>
+   <%  });%>
+    </ul>
+
+    <ul class="list-group" style="min-width:150px">
+      <li class="list-group-item" style="color:blue;">热门资源</li>
+      <li class="list-group-item"><a href="http://www.zhihu.com/" target="view_window">知乎网</a></li>
+      <li class="list-group-item"><a href="http://www.csdn.net/" target="view_window">CSDN</a></li>
+      <li class="list-group-item"><a href="http://ued.taobao.com/blog/" target="view_window">淘宝UED</a></li>
+      <li class="list-group-item"><a href="http://runjs.cn/code" target="view_window">RunJS</a></li>
+    </ul>
+
+   </div>
+<!-- 导航结束 -->
+<!-- 内容板块开始 -->
+<div class="content_right container">
+<% posts.forEach(function(post,index){ %>
+	
+<div class="jumbotron">
+      <h3><%= post.title%></h3>
+        <% 
+            function    HTMLDeCode(str)   
+               {   
+                     var    s    =    "";   
+                     if    (str.length    ==    0)    return    "";   
+                     s    =    str.replace(/&amp;/g,    "&");   
+                     s    =    s.replace(/&lt;/g,        "<");   
+                     s    =    s.replace(/&gt;/g,        ">");   
+                     s    =    s.replace(/&nbsp;/g,        "    ");   
+                     s    =    s.replace(/'/g,      "\'");   
+                     s    =    s.replace(/&quot;/g,      "\"");   
+                     s    =    s.replace(/<br>/g,      "\n");   
+                     s    =    s.replace(/&#39;/g,      "\'");  
+                     return    s;   
+               }   
+
+
+         var text=post.post+"";
+         text=HTMLDeCode(text);
+         text=text.replace(/<[^>]+>/g,"");
+         text=text.substring(0,100);
+         
+
+
+            %>
+     
+    
+      <p class="p_p">内容：<%= text%></p>
+      <p><a target="_bank" class="btn btn-primary btn-lg" role="button" href="/blogs/<%=post._id%>">了解更多</a></p>
+    </div>
+<% }); %>
+    
+  
+    </div><!-- end content_content -->
+  
+<!-- content_right 结束模块 -->
+   
+</div><!-- end content -->
+<ul class="pager">
+            <% if (!isFirstPage) { %>
+           <li><a title="上一页" href="?p=<%= page-1 %>">上一页</a></li>
+            <% } %>
+            <% if(!isLastPage) {%>
+           <li><a title="下一页" href="?p=<%= page+1 %>">下一页</a></li>
+            <% } %>
+  </ul>
+<%- include kingda_footer %>
